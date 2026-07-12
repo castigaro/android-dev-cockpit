@@ -161,7 +161,9 @@ Write-Host ''
 Write-Host '  So geht es weiter:' -ForegroundColor White
 Write-Host "    1. In VS Code öffnen:  $LadRoot\app-development.code-workspace" -ForegroundColor Gray
 Write-Host '    2. Handy per USB anschließen, USB-Debugging einschalten.' -ForegroundColor Gray
-Write-Host '    3. Im Explorer unten die Ansicht "NPM SCRIPTS" aufklappen.' -ForegroundColor Gray
+Write-Host '    3. Im Explorer die Ansicht "NPM SCRIPTS" einblenden:' -ForegroundColor Gray
+Write-Host '       Titelleiste "EXPLORER" -> Menue "..." -> Haken bei "NPM Scripts".' -ForegroundColor Gray
+Write-Host '       (VS Code blendet sie bei Multi-Root-Workspaces nicht von selbst ein.)' -ForegroundColor Gray
 Write-Host '    4. Beim Namen deiner App auf den Play-Button klicken. (Oder: Strg+Shift+B)' -ForegroundColor Gray
 Write-Host ''
 Write-Host '  Details und Fehlerbehebung: README.md' -ForegroundColor Gray

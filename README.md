@@ -53,6 +53,16 @@ einzige Extension.
 Öffne im Explorer (linke Seitenleiste) unten die Ansicht **NPM SCRIPTS**. Dort
 steht jede Aktion mit einem ▶-Button daneben. Ein Klick, fertig.
 
+> **Du siehst die Ansicht nicht? Das ist normal — sie ist nur ausgeblendet.**
+> Fahre im Explorer über die Titelleiste („EXPLORER"), klick rechts auf das
+> **`…`**-Menü und setz den Haken bei **NPM Scripts**. Sie erscheint ganz unten,
+> unter „Gliederung" und „Timeline".
+>
+> Grund: Der erzeugte Workspace enthält mehrere Ordner (diesen und deine
+> App-Repos). Bei so einem Multi-Root-Workspace liegt die `package.json` für VS
+> Code nicht „ganz oben", und dann blendet es die Ansicht nicht von selbst ein.
+> Einmal angehakt, bleibt sie sichtbar.
+
 `<app>` steht dabei für den Namen deiner App, so wie die Umgebung sie gefunden
 hat — heißt der Projektordner `meine-app`, heißen die Skripte `meine-app`,
 `meine-app:push` und so weiter.

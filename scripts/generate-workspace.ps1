@@ -168,4 +168,5 @@ Write-Ok "package.json geschrieben: $($npmScripts.Count) Play-Buttons"
 Write-Info "Shell für die Tasks: $psExe"
 Write-Host ''
 Write-Info 'In VS Code: Explorer öffnen, unten die Ansicht "NPM SCRIPTS" aufklappen.'
+Write-Info 'Fehlt sie? Titelleiste "EXPLORER" -> Menü "..." -> Haken bei "NPM Scripts".'
 Write-Info 'Jedes Skript hat dort einen Play-Button. Strg+Shift+B startet den Standard-Build.'
