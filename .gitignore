@@ -1,0 +1,26 @@
+# Lokale Einstellungen und Secrets. Vorlage: .env.example
+.env
+
+# Von generate-workspace.ps1 erzeugt: enthalten absolute Pfade und die auf
+# DIESEM Rechner gefundenen Apps. Nicht von Hand bearbeiten.
+app-development.code-workspace
+package.json
+node_modules/
+
+# Portable Toolchain: laedt install.cmd herunter (~1,5 GB).
+toolchain/*
+!toolchain/.gitkeep
+
+# Ergebnisse lokaler Builds (APKs).
+builds/*
+!builds/.gitkeep
+
+# Projektnotizen, Planungen, Sitzungsmitschriften. Bleiben lokal: Sie gehoeren
+# zu EINEM Projekt, dieses Repo ist generisch.
+planning/*
+!planning/.gitkeep
+
+# Windows / Editor
+Thumbs.db
+desktop.ini
+.vscode/

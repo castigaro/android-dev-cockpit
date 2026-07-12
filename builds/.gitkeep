@@ -1,0 +1,5 @@
+# Hierhin legen die Build-Skripte die fertigen APKs, je App ein Unterordner:
+#   <app>\<app>-debug-<zeitstempel>.apk
+#   <app>\<app>-debug-latest.apk   (immer der letzte Build)
+#
+# Der Inhalt ist gitignoriert — nur dieser Platzhalter wird versioniert.

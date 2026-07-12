@@ -1,0 +1,6 @@
+# Hierhin installiert install.cmd die portable Toolchain:
+#   jdk-17\        Eclipse Temurin JDK 17
+#   android-sdk\   Android SDK (cmdline-tools, platform-tools, platform, build-tools)
+#   gradle-home\   GRADLE_USER_HOME (Gradle-Distribution + Dependency-Cache)
+#
+# Der Inhalt ist gitignoriert — nur dieser Platzhalter wird versioniert.

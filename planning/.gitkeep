@@ -1,0 +1,6 @@
+# Platz fuer deine eigenen Notizen, je Projekt ein Unterordner:
+#   planning\<mein-projekt>\...
+#
+# Der Inhalt ist gitignoriert und bleibt auf deinem Rechner. Dieses Repo ist
+# generisch - Projektwissen, Planungen und Sitzungsmitschriften gehoeren nicht
+# in seine Historie. Nur dieser Platzhalter wird versioniert.
