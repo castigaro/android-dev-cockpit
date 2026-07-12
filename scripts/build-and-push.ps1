@@ -79,5 +79,5 @@ Write-Host '    2. "Installieren" bestätigen (beim ersten Mal fragt MIUI nach d
 Write-Host '       Erlaubnis, aus dieser Quelle zu installieren — einmalig zulassen)' -ForegroundColor Gray
 Write-Host ''
 Write-Host '  Warum von Hand? MIUI blockiert jede Installation über ADB. Details:' -ForegroundColor DarkGray
-Write-Host '  README.md, Abschnitt "Wenn etwas klemmt".' -ForegroundColor DarkGray
+Write-Host '  README.de.md, Abschnitt "Sonderfall Xiaomi".' -ForegroundColor DarkGray
 Write-Host ''

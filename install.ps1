@@ -166,5 +166,5 @@ Write-Host '       Titelleiste "EXPLORER" -> Menue "..." -> Haken bei "NPM Scrip
 Write-Host '       (VS Code blendet sie bei Multi-Root-Workspaces nicht von selbst ein.)' -ForegroundColor Gray
 Write-Host '    4. Beim Namen deiner App auf den Play-Button klicken. (Oder: Strg+Shift+B)' -ForegroundColor Gray
 Write-Host ''
-Write-Host '  Details und Fehlerbehebung: README.md' -ForegroundColor Gray
+Write-Host '  Details und Fehlerbehebung: README.de.md  (English: README.md)' -ForegroundColor Gray
 Write-Host ''
