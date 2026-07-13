@@ -84,6 +84,8 @@ foreach ($a in $apps) {
                        -Script 'build-and-push.ps1' -ScriptArgs @('-App', $a.Id)
     $tasks += New-Task -Label "$($a.Name): Letzten Build erneut installieren" `
                        -Script 'install-latest.ps1' -ScriptArgs @('-App', $a.Id)
+    $tasks += New-Task -Label "$($a.Name): Unit-Tests ausführen" `
+                       -Script 'test.ps1' -ScriptArgs @('-App', $a.Id)
     $tasks += New-Task -Label "$($a.Name): Logs anzeigen (Logcat)" `
                        -Script 'logcat.ps1' -ScriptArgs @('-App', $a.Id)
     $tasks += New-Task -Label "$($a.Name): App vom Gerät entfernen" `
@@ -144,6 +146,7 @@ foreach ($a in $apps) {
     # Schlüssel käme leer heraus.
     Add-NpmScript -Name $id               -RelPath 'scripts/build-and-run.ps1'  -ScriptArgs @('-App', $id)
     Add-NpmScript -Name "${id}:push"      -RelPath 'scripts/build-and-push.ps1' -ScriptArgs @('-App', $id)
+    Add-NpmScript -Name "${id}:test"      -RelPath 'scripts/test.ps1'           -ScriptArgs @('-App', $id)
     Add-NpmScript -Name "${id}:reinstall" -RelPath 'scripts/install-latest.ps1' -ScriptArgs @('-App', $id)
     Add-NpmScript -Name "${id}:logs"      -RelPath 'scripts/logcat.ps1'         -ScriptArgs @('-App', $id)
     Add-NpmScript -Name "${id}:clean"     -RelPath 'scripts/clean.ps1'          -ScriptArgs @('-App', $id)
