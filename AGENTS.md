@@ -199,6 +199,8 @@ die regelmäßig für Verwirrung sorgen:
 
 ## Arbeitsweise
 
+- **`main` ist PR-geschützt** — direkte Pushes werden von GitHub abgewiesen.
+  Änderungen laufen über einen Feature-Branch und einen Pull Request.
 - Vor dem Anlegen neuer Dateien: prüfen, ob es dafür schon einen Ort gibt.
 - Änderungen an den Skripten immer gegen den echten Fall testen (Gerät
   angeschlossen, Build läuft durch), nicht nur „sieht richtig aus".
