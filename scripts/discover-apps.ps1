@@ -74,7 +74,7 @@ function Get-AppOrFail {
         Stop-WithHint "App '$Id' wurde nicht gefunden." @(
             "Gefunden wurden: $(if ($known) { $known } else { '(keine)' })",
             "Gesucht wurde unter: $LadProjectsRoot",
-            'Liegt das App-Repository als Geschwister neben local-app-development?',
+            "Liegt das App-Repository als Geschwister neben $(Split-Path $LadRoot -Leaf)?",
             'Danach den Task "Workspace aktualisieren" ausführen.'
         )
     }

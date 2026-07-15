@@ -12,10 +12,11 @@ $LadBuilds    = Join-Path $LadRoot 'builds'
 
 # --- .env laden ------------------------------------------------------------
 $LadSettings = @{
-    PROJECTS_ROOT       = '..'
-    DISCOVERY_DEPTH     = '3'
-    ANDROID_PLATFORM    = '34'
-    ANDROID_BUILD_TOOLS = '34.0.0'
+    PROJECTS_ROOT        = '..'
+    DISCOVERY_DEPTH      = '3'
+    ANDROID_PLATFORM     = '34'
+    ANDROID_BUILD_TOOLS  = '34.0.0'
+    WORKSPACE_EXTRA_DIRS = ''
 }
 
 $envFile = Join-Path $LadRoot '.env'

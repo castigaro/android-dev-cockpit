@@ -70,6 +70,11 @@ Die `.env.example` dokumentiert die Schlüssel, enthält aber keine Werte.
   `app-development.code-workspace` (Ordner + Tasks) und `package.json` (dieselben
   Aktionen als npm-Skripte). Beide sind rechnerabhängig und **gitignoriert** —
   nicht von Hand bearbeiten, sie werden überschrieben.
+- Repos **ohne** baubare App (etwa ein Library-Repo mit gemeinsamem Code oder
+  das Repo einer Website) findet die App-Erkennung absichtlich nicht. Sollen
+  sie trotzdem im Workspace auftauchen, werden sie in der `.env` über
+  `WORKSPACE_EXTRA_DIRS` eingetragen (kommagetrennt, relativ zu
+  `PROJECTS_ROOT`).
 
 **Die Play-Buttons kommen aus der `package.json`, nicht aus einer Extension.**
 VS Code zeigt npm-Skripte in der Explorer-Ansicht „NPM SCRIPTS" mit einem

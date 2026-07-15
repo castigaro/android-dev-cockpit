@@ -39,10 +39,25 @@ if ($apps.Count -eq 0) {
 
 # --- Ordner ----------------------------------------------------------------
 $folders = @(
-    [ordered]@{ path = $LadRoot; name = 'local-app-development' }
+    [ordered]@{ path = $LadRoot; name = (Split-Path $LadRoot -Leaf) }
 )
 foreach ($repo in ($apps | Where-Object { $_.RepoRoot } | Select-Object -ExpandProperty RepoRoot -Unique)) {
     $folders += [ordered]@{ path = $repo; name = (Split-Path $repo -Leaf) }
+}
+
+# Zusätzliche Ordner ohne baubare App (z. B. ein Library- oder Website-Repo),
+# die trotzdem im Workspace auftauchen sollen — siehe WORKSPACE_EXTRA_DIRS
+# in der .env.
+foreach ($dir in ($LadSettings['WORKSPACE_EXTRA_DIRS'] -split '[;,]')) {
+    $dir = $dir.Trim()
+    if (-not $dir) { continue }
+    if (-not [System.IO.Path]::IsPathRooted($dir)) { $dir = Join-Path $LadProjectsRoot $dir }
+    $dir = [System.IO.Path]::GetFullPath($dir)
+    if (Test-Path $dir) {
+        $folders += [ordered]@{ path = $dir; name = (Split-Path $dir -Leaf) }
+    } else {
+        Write-Warn2 "WORKSPACE_EXTRA_DIRS: $dir existiert nicht - übersprungen."
+    }
 }
 
 # --- Tasks -----------------------------------------------------------------
@@ -156,8 +171,11 @@ Add-NpmScript -Name 'device'    -RelPath 'scripts/devices.ps1'
 Add-NpmScript -Name 'workspace' -RelPath 'scripts/generate-workspace.ps1'
 Add-NpmScript -Name 'setup'     -RelPath 'install.ps1'
 
+# npm verlangt Kleinschreibung und URL-sichere Zeichen im Paketnamen.
+$pkgName = (Split-Path $LadRoot -Leaf).ToLowerInvariant() -replace '[^a-z0-9._-]', '-'
+
 $package = [ordered]@{
-    name        = 'local-app-development'
+    name        = $pkgName
     version     = '1.0.0'
     private     = $true
     description = 'Play-Buttons fuer die lokale Android-Entwicklungsumgebung. Generiert - nicht von Hand bearbeiten.'
