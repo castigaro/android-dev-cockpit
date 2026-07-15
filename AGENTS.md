@@ -148,6 +148,35 @@ installieren" verlangen ein Mi-Konto *und* eine eingelegte SIM-Karte; der frühe
 Ausweg „MIUI-Optimierung abschalten" existiert seit MIUI 13/14 nicht mehr. Beides
 ist unnötig, der eine Fingertipp ersetzt es.
 
+## Xiaomi/MIUI: Eingabe-Injection per ADB ist ebenfalls gesperrt
+
+Ohne aktivierte „USB-Debugging (Sicherheitseinstellungen)" (siehe oben: Mi-Konto
++ SIM nötig) weist MIUI **jede** Eingabe-Injection ab: `adb shell input
+tap/swipe/keyevent` scheitert mit `SecurityException … INJECT_EVENTS`, und auch
+`am start` auf nicht-exportierte Activities wird verweigert. Ein Agent kann das
+Gerät also **nicht selbst bedienen**.
+
+**Erprobter Ausweg — beobachtender Test-Workflow:** Der Mensch bedient das
+Gerät, der Agent schaut zu:
+
+- Bildschirm ansehen: `adb exec-out screencap -p > shot.png` (bei Bedarf als
+  Schleife alle paar Sekunden in einen Sitzungsordner) — es gibt kein scrcpy in
+  der Toolchain, und das ist auch nicht nötig.
+- Vom Nutzer selbst erstellte Screenshots liegen unter
+  `/sdcard/DCIM/Screenshots/` und lassen sich per `adb pull` holen.
+- Parallel gefiltertes Logcat mitlesen (`<app>:logs` bzw. `adb logcat`).
+- Pinch-/Multitouch-Gesten lassen sich grundsätzlich nicht per `input`
+  injizieren — Zoom-Gesten bleiben immer ein Handtest.
+
+## Duplikat-App-Ids durch Archiv-Kopien
+
+`discover-apps.ps1` findet **jede** Kopie eines App-Ordners unterhalb von
+`PROJECTS_ROOT` — auch Archiv-/Backup-Kopien (z. B. in einem `old\`-Ordner).
+Gleiche Ordnernamen ergeben dieselbe App-Id; `Get-AppOrFail` nimmt stillschweigend
+den ersten Treffer. Vor dem Bauen im Zweifel prüfen, welcher Pfad gewinnt
+(`(Get-AppOrFail -Id '<id>').Path`), und Archiv-Kopien umbenennen oder deren
+`gradlew.bat` entfernen, damit sie nicht mehr entdeckt werden.
+
 ## Lokaler Debug-Loop
 
 `gradlew installDebug` → APK per USB aufs Gerät → starten. Debug-Builds signiert
