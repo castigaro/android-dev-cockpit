@@ -24,3 +24,6 @@ planning/*
 Thumbs.db
 desktop.ini
 .vscode/
+
+# KI-Sitzungsregeln bleiben lokal (siehe AGENTS.md) und gehoeren nicht ins Repo.
+CLAUDE.md
